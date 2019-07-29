@@ -1,0 +1,30 @@
+server:
+  port: 8002
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    service-url:
+      defaultZone: http://ice.com:8000/eureka/
+  instance:
+    prefer-ip-address: true
+    virtual-host-name:
+spring:
+  application:
+    name: eureka-client
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    shutdown:
+      enabled: true
+  server:
+    port: 58002
+
+logging:
+  config: classpath:log4j2.xml
